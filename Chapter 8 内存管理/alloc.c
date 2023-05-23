@@ -47,6 +47,11 @@ void* xcalloc(size_t nmemb, size_t size){
 //由于栈的特性，alloca分配的内存会在函数返回时自动释放
 //alloca可能导致栈溢出，所以不推荐使用
 
+//brk
+//brk可以用来调整堆的大小
+
+
+
 int main(){
     void* p = malloc(10240);
     malloc_stats();
@@ -57,10 +62,8 @@ int main(){
     //char arr[1024*1024*8]; 爆栈
     //ulimit -s 16384 设置栈大小为16384KB
 
-    char arr[1024*1024*8];
 
-    size_t one_million = 1024 * 1024;
-    //void *q = alloca(one_million*7);
-    malloc_stats();
+    void *q = alloca(1024 * 1024 * 7);
+    
     return 0;
 }

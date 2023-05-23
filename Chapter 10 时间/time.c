@@ -105,6 +105,7 @@ void usleep_test(){
 }
 
 //nanosleep 纳秒级睡眠
+//posix中有clock_nanosleep
 void nanosleep_test(){
     struct timespec ts;
     ts.tv_sec = 0;
@@ -113,6 +114,7 @@ void nanosleep_test(){
     nanosleep(&ts, NULL);
     printf("sleep end\n");
 }
+
 
 //yellow
 void print(char* str){
@@ -132,6 +134,6 @@ int main(){
     usleep_test();
     print("nanosleep test");
     nanosleep_test();
-    
+
     return 0;
 }
